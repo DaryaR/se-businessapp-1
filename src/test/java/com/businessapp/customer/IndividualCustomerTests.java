@@ -9,30 +9,43 @@ import com.businessapp.model.IndividualCustomer;
 public class IndividualCustomerTests extends TestCase {
     
     final String emptyStr = "";
-    final IndividualCustomer testCustomer = new IndividualCustomer();
+    final IndividualCustomer testFirstCustomer = new IndividualCustomer();
     
  
- 
+    public void testCustomerConstructor(){
+    
+        final IndividualCustomer testSecondCustomer = new IndividualCustomer("abab", "12.01.2017", "Hans","Mueller");
+        
+        assertEquals("abab", testSecondCustomer.getId());
+        assertEquals("Hans", testSecondCustomer.getFirstName());
+        assertEquals("Mueller", testSecondCustomer.getName());
+    
+    }
+    
+    
     public void testName(){
-        final String testStr = "Petersen";
-        testCustomer.setName(testStr);
-        assertEquals(testStr, testCustomer.getName());
-        testCustomer.setName(emptyStr);
-        assertEquals(emptyStr, testCustomer.getName());
-        testCustomer.setName(null);
-        assertNull(testCustomer.getName());
+        final String testStr = "Mueller";
+        testFirstCustomer.setName(testStr);
+        assertEquals(testStr, testFirstCustomer.getName());
+        testFirstCustomer.setName(emptyStr);
+        assertEquals(emptyStr, testFirstCustomer.getName());
+        testFirstCustomer.setName(null);
+        assertNull(testFirstCustomer.getName());
     }
  
     public void testFirstName(){
-        final String testStr = "Peter";
-        testCustomer.setFirstName(testStr);
-        assertEquals(testStr, testCustomer.getFirstName());
-        testCustomer.setFirstName(emptyStr);
-        assertEquals(emptyStr, testCustomer.getFirstName());
-        testCustomer.setFirstName(null);
-        assertNull(testCustomer.getFirstName());
+        final String testStr = "Hans";
+        testFirstCustomer.setFirstName(testStr);
+        assertEquals(testStr, testFirstCustomer.getFirstName());
+        testFirstCustomer.setFirstName(emptyStr);
+        assertEquals(emptyStr, testFirstCustomer.getFirstName());
+        //testFirstCustomer.setFirstName(null);
+        //assertNull(testFirstCustomer.getFirstName());
     }
  
+    
+    //test id
+    //test created
 
  
 }
