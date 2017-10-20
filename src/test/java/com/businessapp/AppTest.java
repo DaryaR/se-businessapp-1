@@ -21,6 +21,7 @@ public class AppTest
         super( testName );
     }
 
+
     /**
      * @return the suite of tests being tested
      */
@@ -32,8 +33,11 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
+    
     public void testApp()
     {
         assertTrue( true );
     }
+
+  
 }
