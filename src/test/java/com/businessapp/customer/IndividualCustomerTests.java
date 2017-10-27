@@ -1,51 +1,94 @@
 package com.businessapp.customer;
-
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-
+import org.junit.Test;
 import com.businessapp.model.IndividualCustomer;
+import java.util.Date;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 
-public class IndividualCustomerTests extends TestCase {
-    
-    final String emptyStr = "";
-    final IndividualCustomer testFirstCustomer = new IndividualCustomer();
-    
- 
-    public void testCustomerConstructor(){
-    
-        final IndividualCustomer testSecondCustomer = new IndividualCustomer("abab", "12.01.2017", "Hans","Mueller");
-        
-        assertEquals("abab", testSecondCustomer.getId());
-        assertEquals("Hans", testSecondCustomer.getFirstName());
-        assertEquals("Mueller", testSecondCustomer.getName());
-    
-    }
-    
-    
-    public void testName(){
-        final String testStr = "Mueller";
-        testFirstCustomer.setName(testStr);
-        assertEquals(testStr, testFirstCustomer.getName());
-        testFirstCustomer.setName(emptyStr);
-        assertEquals(emptyStr, testFirstCustomer.getName());
-        testFirstCustomer.setName(null);
-        assertNull(testFirstCustomer.getName());
-    }
- 
+
+
+public class IndividualCustomerTests {
+
+    IndividualCustomer testCustomer = new IndividualCustomer();
+
+    //Test Firstname
+    @Test
     public void testFirstName(){
-        final String testStr = "Hans";
-        testFirstCustomer.setFirstName(testStr);
-        assertEquals(testStr, testFirstCustomer.getFirstName());
-        testFirstCustomer.setFirstName(emptyStr);
-        assertEquals(emptyStr, testFirstCustomer.getFirstName());
-        //testFirstCustomer.setFirstName(null);
-        //assertNull(testFirstCustomer.getFirstName());
+        testCustomer.setFirstName("Peter");
+        assertEquals("Peter", testCustomer.getFirstName());
     }
- 
-    
-    //test id
-    //test created
 
- 
+    //Test Firstname Null
+    @Test
+    public void testFirstNameNull(){
+        testCustomer.setFirstName(null);
+        assertEquals(null, testCustomer.getFirstName());
+    }
+
+    //Test Firstname Empty
+    @Test
+    public void testFirstNameEmpty(){
+        testCustomer.setFirstName("");
+        assertEquals("", testCustomer.getFirstName());
+    }
+
+    //Test Name
+    @Test
+    public void testName(){
+        testCustomer.setName("Meyer");
+        assertEquals("Meyer", testCustomer.getName());
+    }
+
+    // Test Name Null
+    @Test
+    public void testNameNull(){
+        testCustomer.setName(null);
+        assertEquals(null, testCustomer.getName());
+    }
+
+    //Test Name Empty
+    @Test
+    public void testNameEmpty(){
+        testCustomer.setName("");
+        assertEquals("", testCustomer.getName());
+    }
+
+    //Test Id
+    @Test
+    public void testId(){
+        String s1 = new String("234");
+        testCustomer.setId(s1);
+        assertThat(s1 == testCustomer.getId(), is(true));
+    }
+
+    //Test Id Null
+    @Test
+    public void testIdNull(){
+        String s1 = null;
+        testCustomer.setId(s1);
+        assertThat(s1 == testCustomer.getId(), is(true));
+    }
+    
+    //Test Id Empty
+    @Test
+    public void testIdEmpty(){
+        String s1 = "";
+        testCustomer.setId(s1);
+        assertThat(s1 == testCustomer.getId(), is(true));
+    }
+
+    //Test Created
+    @Test
+    public void testCreated(){
+        testCustomer.setCreated(new Date(2014,12,12));
+        assertEquals(new Date(2014,12,12), testCustomer.getCreated());
+    }
+    
+    //Test Created Null
+    @Test
+    public void testCreatedNull(){
+        testCustomer.setCreated(null);
+        assertEquals(null, testCustomer.getCreated());
+    }
+
 }
