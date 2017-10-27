@@ -9,86 +9,81 @@ import static org.junit.Assert.*;
 
 public class IndividualCustomerTests {
 
-    IndividualCustomer testCustomer = new IndividualCustomer();
+    IndividualCustomer testC = new IndividualCustomer();
 
     //Test Firstname
     @Test
     public void testFirstName(){
-        testCustomer.setFirstName("Peter");
-        assertEquals("Peter", testCustomer.getFirstName());
+        testC.setFirstName("Peter");
+        assertEquals("Peter", testC.getFirstName());
     }
 
     //Test Firstname Null
     @Test
     public void testFirstNameNull(){
-        testCustomer.setFirstName(null);
-        assertEquals(null, testCustomer.getFirstName());
+        testC.setFirstName(null);
+        assertEquals(null, testC.getFirstName());
     }
 
     //Test Firstname Empty
     @Test
     public void testFirstNameEmpty(){
-        testCustomer.setFirstName("");
-        assertEquals("", testCustomer.getFirstName());
+        testC.setFirstName("");
+        assertEquals("", testC.getFirstName());
     }
 
     //Test Name
     @Test
     public void testName(){
-        testCustomer.setName("Meyer");
-        assertEquals("Meyer", testCustomer.getName());
+        testC.setName("Petersen");
+        assertEquals("Petersen", testC.getName());
     }
 
     // Test Name Null
     @Test
     public void testNameNull(){
-        testCustomer.setName(null);
-        assertEquals(null, testCustomer.getName());
+        testC.setName(null);
+        assertEquals(null, testC.getName());
     }
 
     //Test Name Empty
     @Test
     public void testNameEmpty(){
-        testCustomer.setName("");
-        assertEquals("", testCustomer.getName());
+        testC.setName("");
+        assertEquals("", testC.getName());
+    }
+    
+     //Test Created
+    @Test
+    public void testCreated(){
+        testC.setCreated(new Date(2014,12,12));
+        assertEquals(new Date(2014,12,12), testC.getCreated());
     }
 
     //Test Id
     @Test
     public void testId(){
-        String s1 = new String("234");
-        testCustomer.setId(s1);
-        assertThat(s1 == testCustomer.getId(), is(true));
+        String sId = new String("234");
+        testC.setId(sId);
+        assertThat(sId == testC.getId(), is(true));
     }
 
     //Test Id Null
     @Test
     public void testIdNull(){
-        String s1 = null;
-        testCustomer.setId(s1);
-        assertThat(s1 == testCustomer.getId(), is(true));
+        String sId = null;
+        testC.setId(sId);
+        assertThat(sId == testC.getId(), is(true));
     }
     
     //Test Id Empty
     @Test
     public void testIdEmpty(){
-        String s1 = "";
-        testCustomer.setId(s1);
-        assertThat(s1 == testCustomer.getId(), is(true));
+        String sId = "";
+        testC.setId(sId);
+        assertThat(sId == testC.getId(), is(true));
     }
 
-    //Test Created
-    @Test
-    public void testCreated(){
-        testCustomer.setCreated(new Date(2014,12,12));
-        assertEquals(new Date(2014,12,12), testCustomer.getCreated());
-    }
-    
-    //Test Created Null
-    @Test
-    public void testCreatedNull(){
-        testCustomer.setCreated(null);
-        assertEquals(null, testCustomer.getCreated());
-    }
+   
 
 }
