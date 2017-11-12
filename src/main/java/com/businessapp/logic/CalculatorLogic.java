@@ -39,6 +39,7 @@ class CalculatorLogic implements CalculatorLogicIntf {
      * @param tok the next Token passed from the UI, CalculatorViewController.
      */
 	public void nextToken( Token tok ) {
+                     
 		String d = tok==Token.K_DOT? "." : CalculatorLogicIntf.KeyLabels[ tok.ordinal() ];
 		try {
 			switch( tok ) {
@@ -63,9 +64,22 @@ class CalculatorLogic implements CalculatorLogicIntf {
 				break;
 
 			case K_VAT:
-				CalculatorLogicIntf.SIDEAREA.set(
+				/*CalculatorLogicIntf.SIDEAREA.set(
 					"Brutto:  1,000.00\n" +
 					VAT_RATE + "% MwSt:  159.66\n" +
+					"Netto:  840.34"
+				); */
+                                String displayValue = dsb.toString();
+                                double displayDoubleValue = Double.parseDouble(displayValue);
+                                
+                                //MwSt. = (Brutto-Preis / (100 + Mehrwertsteuersatz) ) * Mehrwertsteuersatz
+                                double vat = (displayDoubleValue / (100 + VAT_RATE) * VAT_RATE );
+                                //double roundedVat = Math.
+                                
+                                CalculatorLogicIntf.SIDEAREA.set(
+                                        
+                                        "Brutto:" + displayValue + "\n" + 
+					VAT_RATE + "% MwSt:" + vat + "\n" +
 					"Netto:  840.34"
 				);
 				break;
