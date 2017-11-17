@@ -1,5 +1,7 @@
 package com.businessapp.logic;
 
+import java.text.DecimalFormat;
+
 
 /**
  * ********************************************************************************
@@ -70,17 +72,20 @@ class CalculatorLogic implements CalculatorLogicIntf {
 					"Netto:  840.34"
 				); */
                                 String displayValue = dsb.toString();
+                                
+                                DecimalFormat f = new DecimalFormat("0.00");
                                 double displayDoubleValue = Double.parseDouble(displayValue);
                                 
                                 //MwSt. = (Brutto-Preis / (100 + Mehrwertsteuersatz) ) * Mehrwertsteuersatz
                                 double vat = (displayDoubleValue / (100 + VAT_RATE) * VAT_RATE );
+                                double netto = (displayDoubleValue - vat);
                                 //double roundedVat = Math.
                                 
                                 CalculatorLogicIntf.SIDEAREA.set(
                                         
                                         "Brutto:" + displayValue + "\n" + 
-					VAT_RATE + "% MwSt:" + vat + "\n" +
-					"Netto:  840.34"
+					VAT_RATE + "% MwSt: " + f.format(vat) + "\n" +
+					"Netto: " + f.format(netto)
 				);
 				break;
 
