@@ -1,6 +1,8 @@
 package com.businessapp.logic;
-
+import java.util.StringTokenizer;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -57,13 +59,20 @@ class CalculatorLogic implements CalculatorLogicIntf {
 				break;
 
 			case K_DIV:
-				throw new ArithmeticException( "ERR: div by zero" );
-			case K_MUL:
-			case K_PLUS:
-			case K_MIN:
-			case K_EQ:
-				appendBuffer( d );
-				break;
+                        case K_MUL:
+                        case K_PLUS:
+                        case K_MIN:
+                            if (dsb.charAt(dsb.length()-1) == '*') break;
+                            if (dsb.charAt(dsb.length()-1) == '+') break;
+                            if (dsb.charAt(dsb.length()-1) == '-') break;
+                            if (dsb.charAt(dsb.length()-1) == '/') break;
+                            appendBuffer(d);
+                            break;
+
+                        case K_EQ:
+                            calculate(dsb.toString());
+                   
+                            break;
 
 			case K_VAT:
 				/*CalculatorLogicIntf.SIDEAREA.set(
@@ -75,12 +84,9 @@ class CalculatorLogic implements CalculatorLogicIntf {
                                 
                                 DecimalFormat f = new DecimalFormat("0.00");
                                 double displayDoubleValue = Double.parseDouble(displayValue);
-                                
                                 //MwSt. = (Brutto-Preis / (100 + Mehrwertsteuersatz) ) * Mehrwertsteuersatz
                                 double vat = (displayDoubleValue / (100 + VAT_RATE) * VAT_RATE );
-                                double netto = (displayDoubleValue - vat);
-                                //double roundedVat = Math.
-                                
+                                double netto = (displayDoubleValue - vat);                            
                                 CalculatorLogicIntf.SIDEAREA.set(
                                         
                                         "Brutto:" + displayValue + "\n" + 
@@ -122,5 +128,89 @@ class CalculatorLogic implements CalculatorLogicIntf {
 			dsb.append( d );
 		}
 	}
+        
+        
+        public double calculate(String expression) {
+                if (expression == null) return Double.MIN_VALUE;
+                expression = expression.trim();
+                if (expression.equals("")) return Double.MIN_VALUE;     
+                StringTokenizer str = new StringTokenizer(expression, "+-*/^%", true);
+                List tokens = new ArrayList(str.countTokens());
+                while (str.hasMoreTokens())
+                    tokens.add(str.nextToken().trim());
+                while (tokens.indexOf("%") > -1) {
+                    for (int n = 0; n < tokens.size(); n++)
+                        calculate("%", tokens, n);
+                }
+                while (tokens.indexOf("^") > -1) {
+                    for (int n = 0; n < tokens.size(); n++)
+                        calculate("^", tokens, n);
+                }
+                while (tokens.indexOf("*") > -1) {
+                    for (int n = 0; n < tokens.size(); n++)
+                        calculate("*", tokens, n);
+                }
+                while (tokens.indexOf("/") > -1) {
+                    for (int n = 0; n < tokens.size(); n++)
+                        calculate("/", tokens, n);
+                }
+                while (tokens.indexOf("-") > -1) {
+                    for (int n = 0; n < tokens.size(); n++)
+                        calculate("-", tokens, n);
+                }
+                while (tokens.indexOf("+") > -1) {
+                    for (int n = 0; n < tokens.size(); n++)
+                        calculate("+", tokens, n);
+                }
+                if (tokens.size() != 1) return Double.MIN_VALUE;
+                
+                return toDouble((String) tokens.get(0),  Double.MIN_VALUE);  
+        }
 
+        private void calculate(String calcType, List tokens, int n) {
+            String token = (String) tokens.get(n);
+            if (!token.equals(calcType)) return;
+            double l, r, res;
+            int s, e;
+            if (n - 1 == -1) {
+                s = 0;
+                l = 1;
+            } else {
+                s = n - 1;
+                l = toDouble((String) tokens.get(n - 1), 1);
+            }
+            if (n + 1 == tokens.size()) {
+                e = tokens.size() - 1;
+                r = 1;
+            } else {
+                e = n + 1;
+                r = toDouble((String) tokens.get(n + 1), 1);
+            }
+            if (calcType.equals("%"))
+                res = Math.sqrt(r);
+            else if (calcType.equals("^"))
+                res = Math.pow(l, r);
+            else if (calcType.equals("*"))
+                res = l * r;
+            else if (calcType.equals("/"))
+                res = l / r;
+            else if (calcType.equals("-"))
+                res = l - r;
+            else if (calcType.equals("+"))
+                res = l + r;
+            else
+                res = 0;
+            tokens.add(e + 1, String.valueOf(res));
+            for (int i = e; i >= s; i--)
+                tokens.remove(i);
+            n = n + (e - s);
+
+        }
+
+        private double toDouble(String number, double defaultNumber) {
+            try {
+                return Double.parseDouble(number);
+            } catch (NumberFormatException e) {}
+            return defaultNumber;
+        } 
 }
