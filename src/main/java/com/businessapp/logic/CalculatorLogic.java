@@ -122,16 +122,20 @@ class CalculatorLogic implements CalculatorLogicIntf {
                                         }
                                         
                                         if (strings.get(i).equals("/")) {
-                                            if (numbers.get(i+1) != 0) {
-                                            erg = numbers.get(i) / numbers.get(i+1);
-                                            numbers.set(i, erg);
-                                            strings.remove(i);
-                                            numbers.remove(i+1);
-                                            break;
-                                            }
-                                            else {
+                                            
+                                            if (numbers.get(i+1) == 0) {
                                                 CalculatorLogicIntf.SIDEAREA.set("");
-                                                throw new java.lang.ArithmeticException("Nicht durch 0 teilen");
+                                                dsb.delete(0, dsb.length());
+                                                numbers.clear();
+                                                strings.clear();
+                                                throw new ArithmeticException("Nicht durch 0 teilen");
+                                  
+                                            }else{
+                                                erg = numbers.get(i) / numbers.get(i+1);
+                                                numbers.set(i, erg);
+                                                strings.remove(i);
+                                                numbers.remove(i+1);
+                                                break;
                                             }
                                         }
                                     }
@@ -177,7 +181,6 @@ class CalculatorLogic implements CalculatorLogicIntf {
                                 }else{
                                     appendBuffer(d);
                                 }
-				appendBuffer( d );
 				break;
 
 			case K_BACK:
@@ -185,9 +188,11 @@ class CalculatorLogic implements CalculatorLogicIntf {
 				break;
 
 			case K_C:
+                                dsb.delete( 0,  dsb.length() );
 				CalculatorLogicIntf.SIDEAREA.set( "" );
 			case K_CE:
 				dsb.delete( 0,  dsb.length() );
+                                CalculatorLogicIntf.SIDEAREA.set( "" );
 				break;
 
 			default:
