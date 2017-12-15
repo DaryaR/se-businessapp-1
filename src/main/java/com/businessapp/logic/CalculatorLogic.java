@@ -72,6 +72,7 @@ class CalculatorLogic implements CalculatorLogicIntf {
                             isString(dsb);
                             strings.add("/");
                             numbers.add(number);
+                            System.out.println("/");
                             System.out.println(numbers);
                             dsb.delete( 0,  dsb.length() );
                             break;
@@ -79,12 +80,14 @@ class CalculatorLogic implements CalculatorLogicIntf {
                             isString(dsb);
                             strings.add("*");
                             numbers.add(number);
+                            System.out.println("*");
                             System.out.println(numbers);
                             dsb.delete( 0,  dsb.length() );
                             break;
 			case K_PLUS:
                             isString(dsb);
                             strings.add("+");
+                            System.out.println("+");
                             numbers.add(number);
                             System.out.println(numbers);
                             dsb.delete( 0,  dsb.length() );
@@ -94,6 +97,7 @@ class CalculatorLogic implements CalculatorLogicIntf {
                             isString(dsb);
                             strings.add("-");
                             numbers.add(number);
+                            System.out.println("-");
                             System.out.println(numbers);
                             dsb.delete( 0,  dsb.length() );
                             break;
