@@ -1,0 +1,72 @@
+Name:	Jannis Rüscher								Mat.-Nr.: 857297
+
+1. Nennen Sie 5 Artikel, die in Ihrem Kontext für die Ausleihe sinnvoll sind.
+
+DVD's
+Blu-ray's
+Spielekonsolen
+Konsolen Zubehör
+Beamer
+
+
+
+
+2. Benennen Sie die Stakeholder und Akteure, die in Ihrem Kontext eine Rolle spielen.
+
+Stakeholder:
+
+Besitzer
+Investoren
+
+Akteure:
+
+Mitarbeiter
+Kunden (Personen die etwas leihen)
+Besucher (Personen die bisher nichts geliehen haben)
+
+
+
+
+3. Geben Sie eine kurze Problemdefinition: 	
+						
+1. Kunden könnten Filme / ausleihbare Gegenstände vergessen zurückzubringen, beschädigen oder stehlen
+2. Es ist evtl. unklar, was es für  Gegenstände zum leihen gibt. Was nicht so offensichtlich ist  (z.B. Beamer)
+3. Es gibt Online bessere Angebote
+4. Sinkende Nachfrage, allgemein für Filme / Serien bei Kunden
+5. Nicht alle Filme sind immer ausleihbar (vergriffen)
+
+
+
+4. Formulieren Sie die wichtigsten Ziele der angestrebten Lösung: 
+
+				
+1. Nur registrierte Kunden können etwas leihen, somit kann bei vergessen / beschädigen eine Gebühr verlangt werden, und Diebstahl eine Mahnung verschickt werden
+2. Das gesamte Sortiment könnte auf der eigenen Webseite angepriesen werden
+3. Es sollte Kundengruppen geben, welche z.B. nur Filme leihen können oder auch zusätzliches Equipment (gegen einer höheren Gebühr)
+4. Es kann mit Rabatten oder Gutscheinen gelockt werden um so neue Kunden zu locken
+5. Für die Verfügbarkeit würde es auf der eigenen Webseite eine Benachrichtigung geben
+
+
+
+5. Beschreiben Sie, was Sie in fiktiven Interviews mit den Stakeholdern bzw. Akteuren als 
+deren Wünsche	oder Erwartungen an das Ausleihsystem erfahren haben. Verwenden Sie
+die Form von User Stories und versuchen Sie, das oben beschrieben Scenario abzudecken.
+Als Zielvorgabe sollten ca. 10-15 User Stories entstehen.
+
+1. Als Besucher möchte ich eine gute Übersicht von vorhanden Filmen haben
+2. Als Besucher möchte ich in der Videothek gute beraten werden
+3. Als Besucher möchte ich gerne „Inspiriert“ werden, mit einer „Kino-Atmosphäre“
+4. Als Besucher möchte ich mich ggf. für einen Newsletter anmelden.
+5. Als Besucher möchte ich mich ggf. registrieren können.
+6. Als Kunde möchte ich aktuelle und spezielle Filme / Equipment leihen
+7. Als Kunde möchte ich Film am selben Tag zurückgeben
+8. Als Kunde möchte ich Filme online reservieren
+9. Als Kunde möchte ich ggf. auch Nahrungsmittel (Popcorn, Chips etc.) kaufen
+10. Als Kunde möchte ich angemessene Preise und eine gute Qualität haben
+11. Als Besitzer möchte ich ein gutes System zur Filmverwaltung haben
+12. Als Besitzer möchte das meine Kunden öfter Filme ausleihen und Stammkunden werden
+13. Als Besitzer möchte ich Zahlungen / leihen Online ermöglichen
+14. Als Besitzer möchte ich Qualität für meine Produkte gewährleisten
+15. Als Besitzer möchte ich ein neues und gutes Sortiment vorweisen
+
+
